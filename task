@@ -1,0 +1,83 @@
+-------------------------------------------------------
+main.cpp 
+#include <stdlib.h>
+#include <stdio.h>
+#include "headr_ss.h"
+#include "headr_gg.h"
+#include <iostream>
+using namespace std;
+
+int func(gg & D, ss & Q){
+	int max = D.S;
+	if ( Q.D > max) {
+		max = Q.D;
+	}
+	if ( Q.Q > max) {
+		max = Q.Q;
+	}
+	return max;
+}
+int main()
+{
+	int P;
+	cin >> P;
+	gg ob1{P};
+	ss ob2;
+	int a, b;
+	cin >>a>>b;
+	ob2.input(a, b);
+	int max = func(ob1, ob2);
+	cout << "max = " << max;
+	return(0);
+}
+-------------------------------------------------------------------
+headr_ss.cpp
+#include "headr_ss.h"
+#include <iostream> 
+using namespace std;
+void ss::input(int a, int b) {
+	D = a;
+	Q = b;
+}
+-------------------------------------------------------------------
+headr_gg.cpp
+#include "headr_gg.h"
+#include <iostream> 
+using namespace std;
+gg::gg(int R){
+	S = R;
+}
+-------------------------------------------------------------------
+headr_ss.h
+#ifndef HEADR_H
+#define HEADR_H
+#include "headr_gg.h"
+class ss{
+private:
+	int D, Q;
+public:
+	void input(int a, int b);
+	friend int func(gg &, ss &);
+};
+#endif 
+--------------------------------------------------------------------
+headr_gg.h
+#ifndef HEADR_H
+#define HEADR_H
+#include "headr_ss.h"
+class ss;
+class gg{
+private:
+	int S;
+public:
+	gg(int);
+	friend int func(gg &, ss &);
+};
+class ss{
+private:
+	int D, Q;
+public:
+	void input(int a, int b);
+	friend int func(gg &, ss &);
+};
+#endif 
