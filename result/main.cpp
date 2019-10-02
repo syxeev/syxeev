@@ -1,7 +1,5 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "headr_ss.h"
-#include "headr_gg.h"
+#include "gg.h"
+#include "ss.h"
 #include <iostream>
 using namespace std;
 
