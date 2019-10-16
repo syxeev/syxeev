@@ -1,0 +1,39 @@
+#include "cl_4.h"
+
+cl_4::cl_4()
+{
+	set_state(1);
+}
+
+cl_base* cl_4::get_object_pointer(string path)
+{
+	vector <string> arr;
+	
+	if((path.length () < 2) || (path[0] != '/'))
+		return NULL;
+	
+	string temp;
+	int i = 1;
+	while(path[i] != '\0')
+	{
+		if(path[i] != '/')
+			temp += path[i];
+		else
+		{
+			arr.push_back(temp);
+			temp.clear();
+		}
+		i++;
+	}
+	arr.push_back(temp);
+	
+	cl_base* p_cur = get_object_root();
+	for(vector <string>::iterator it = arr.begin() + 1; it != arr.end(); it++)
+	{
+		p_cur = p_cur->get_child(*it);
+		if(p_cur == NULL)
+			return NULL;
+	}
+	
+	return p_cur;
+}
