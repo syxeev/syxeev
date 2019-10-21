@@ -5,6 +5,6 @@ private:
 	int D, Q;
 public:
 	void input(int a, int b);
-	friend int func(gg &, ss &);
+	friend int func(const gg &, const ss &);
 };
 #endif
