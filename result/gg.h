@@ -6,5 +6,5 @@ private:
 	int S;
 public:
 	gg(int);
-	friend int func(gg &, ss &);
+	friend int func(const gg &, const ss &);
 };

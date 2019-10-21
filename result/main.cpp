@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-int func(gg & D, ss & Q){
+int func(const gg & D, const ss & Q){
 	int max = D.S;
 	if ( Q.D > max) {
 		max = Q.D;
