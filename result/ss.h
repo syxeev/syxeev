@@ -1,6 +1,5 @@
 #ifndef SS_H
 #define SS_H
-#include "gg.h"
 class ss{
 private:
 	int D, Q;
